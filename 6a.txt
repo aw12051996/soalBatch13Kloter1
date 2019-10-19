@@ -1,0 +1,22 @@
+// kode insert
+INSERT INTO `db_gudang`.`categories`(`id`,`name`) VALUES ( '1','hp');
+INSERT INTO `db_gudang`.`categories`(`id`,`name`) VALUES ( '2','tv');
+INSERT INTO `db_gudang`.`categories`(`id`,`name`) VALUES ( '3','laptop');
+
+
+INSERT INTO `db_gudang`.`products`(`id`,`name`,`stok`,`deskripsi`,`category_id`) VALUES ( NULL,'sharp 14 inch','10','baru','2');
+INSERT INTO `db_gudang`.`products`(`id`,`name`,`stok`,`deskripsi`,`category_id`) VALUES ( NULL,'lanovo ideapad 32','5','baru','3');
+INSERT INTO `db_gudang`.`products`(`id`,`name`,`stok`,`deskripsi`,`category_id`) VALUES ( NULL,'xiomi Mi A1','15','baru','1');
+INSERT INTO `db_gudang`.`products`(`id`,`name`,`stok`,`deskripsi`,`category_id`) VALUES ( NULL,'Apple Macbook Air','5','baru','3');
+INSERT INTO `db_gudang`.`products`(`id`,`name`,`stok`,`deskripsi`,`category_id`) VALUES ( NULL,'Asus VivoBook Max','10','baru','3');
+INSERT INTO `db_gudang`.`products`(`id`,`name`,`stok`,`deskripsi`,`category_id`) VALUES ( NULL,'Samsung A10','20','baru','1');
+INSERT INTO `db_gudang`.`products`(`id`,`name`,`stok`,`deskripsi`,`category_id`) VALUES ( NULL,'panasonic 22 inch',5,'baru',2);
+
+// kode tampil semua kategori
+SELECT * FROM categories;
+
+// kode tampil produk per kategori
+SELECT categories.name AS nama_kategori, products.name AS nama_produk, products.stok AS stok FROM db_gudang.products INNER JOIN db_gudang.categories ON (products.category_id = categories.id) ORDER BY categories.id ASC;
+
+// kode tampil detail produk
+SELECT products.name AS nama_produk, products.stok AS stok, products.deskripsi AS deskripsi, categories.name AS nama_kategori FROM db_gudang.products INNER JOIN db_gudang.categories ON (products.category_id = categories.id) ORDER BY categories.id ASC;
